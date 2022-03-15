@@ -1,0 +1,59 @@
+<h1 class="text-center p-2">Salesforce Accounts</h1>
+<hr />
+<div class="d-flex flex-row bd-highlight">
+  <div
+    class="
+      mx-5
+      table-responsive-sm
+      table-responsive-lg
+      table-responsive-md
+      table-responsive-xl
+    "
+  >
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Industry</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let each of Accounts"
+          (click)="handleContact(each)"
+          class="cursor-pointer"
+          [ngClass]="{ dark: curIndex == each.index }"
+        >
+          <th scope="row">{{ each.Id }}</th>
+          <td>{{ each.Name }}</td>
+          <td>{{ each.Type }}</td>
+          <td>{{ each.Phone }}</td>
+          <td>{{ each.Industry }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="justify-content-around">
+    <h1 class="text-center p-2">Salesforce Contacts for Account Clicked</h1>
+    <br />
+    <div
+      class="card text-center"
+      style="width: 18rem;padding : 2rem"
+      *ngFor="let each of Contacts"
+    >
+      <div class="card-body">
+        <h5 class="card-title">{{ each.Name }}</h5>
+        <p class="card-text">
+          Id : {{ each.Id }} <br />
+          AccountId : {{ each.AccountId }} <br />
+          Phone : {{ each.Phone }} <br />
+          Email : {{ each.Email }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
